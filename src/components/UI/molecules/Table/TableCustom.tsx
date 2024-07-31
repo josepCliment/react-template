@@ -11,6 +11,8 @@ interface TableProps<T> {
   columns: Array<TableColumn>;
   rows: Array<T>;
   actions?: boolean;
+  onEditActionPressed?: (id: number | string) => void;
+  onDeleteActionPressed?: (id: number | string) => void;
 }
 
 /**
@@ -18,6 +20,8 @@ interface TableProps<T> {
  * @param actions - Boolean to show actions column
  * @param columns - Headers array for the column
  * @param rows - Row array
+ * @param onEditActionPressed - Callback for edit action
+ * @param onDeleteActionPressed - Callback for delete action
  * @returns JSXElement
  */
 
@@ -25,6 +29,8 @@ const TableCustom = <T extends TableRow>({
   columns = [],
   rows,
   actions,
+  onEditActionPressed = () => {},
+  onDeleteActionPressed = () => {},
 }: TableProps<T>) => {
   const [data, setData] = useState<Array<T>>(rows || []);
 
@@ -32,15 +38,32 @@ const TableCustom = <T extends TableRow>({
     setData([...rows]);
   }, [rows]);
 
-
-  const MemoizedTableActions = memo(function MemoizedTableActions(){
+  /**
+   * Memoized TableActions component
+   * @param id - Row identifier
+   * @returns JSXElement
+   */
+  const MemoizedTableActions = memo(function MemoizedTableActions({
+    id,
+  }: {
+    id: number | string;
+  }) {
     return (
       <td>
-        <TableAction label={'Edit'} className={""}/>
+        <div className="w-100 d-flex justify-content-center align-items-center gap-4">
+          <TableAction label={
+            <i className="bi bi-pencil-square"></i>
+          } onClick={() => onEditActionPressed(id)} />
+          <TableAction
+            label={
+              <i className="bi bi-trash-fill" style={{ color: "red" }}></i>
+            }
+            onClick={() => onDeleteActionPressed(id)}
+          />
+        </div>
       </td>
-  )
+    );
   });
-
 
   return (
     <Table bordered hover variant="dark" responsive="md">
@@ -58,7 +81,7 @@ const TableCustom = <T extends TableRow>({
             {Object.keys(r).map((rv, idx) => (
               <td key={idx}>{r[rv]}</td>
             ))}
-            {actions && <MemoizedTableActions />}
+            {actions && <MemoizedTableActions id={r.id} />}
           </tr>
         ))}
       </tbody>

@@ -3,6 +3,11 @@ import { NavigationItems } from "../../../../constants/NavigationItems";
 import SideBarBrand from "../../molecules/NavBars/SideBar/SideBarBrand";
 import SideBarNavItem from "../../molecules/NavBars/SideBar/SideBarNavItem";
 
+/**
+ * Displays the SideBar. To modify this sidebar you have to go to constants/NavigationItems 
+ * @returns JSXElement
+ */
+
 const SideBar = () => {
   return (
     <Col
