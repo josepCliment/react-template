@@ -9,6 +9,7 @@ import SideBarNavItem from "../../molecules/NavBars/SideBar/SideBarNavItem";
  */
 
 const SideBar = () => {
+
   return (
     <Col
       className="bg-dark min-vh-100 d-flex justify-content-between flex-column p-3"
