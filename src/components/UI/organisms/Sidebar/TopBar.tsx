@@ -1,6 +1,5 @@
 import { Nav } from "react-bootstrap";
 import { NavigationItems } from "../../../../constants/NavigationItems";
-import NavigationLink from "../../atoms/Links/NavigationLink";
 import TopNavItem from "../../molecules/NavBars/TopNavItem";
 
 /**

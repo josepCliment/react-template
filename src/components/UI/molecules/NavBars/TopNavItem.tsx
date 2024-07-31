@@ -1,7 +1,6 @@
 import { Nav } from "react-bootstrap";
-import NavigationLink from "../../atoms/Links/NavigationLink";
-import { RouteObject } from "react-router-dom";
 import { Route } from "../../../../constants/NavigationItems";
+import NavigationLink from "../../atoms/Links/NavigationLink";
 
 const TopNavItem = ({ element, index }: { element: Route; index: number }) => {
   return (
