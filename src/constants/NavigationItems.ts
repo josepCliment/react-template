@@ -10,4 +10,9 @@ export const NavigationItems: Array<Route> = [
     label: "Home",
     icon: 'bi bi-house'
   },
+  {
+    path: "/profile",
+    label: "Profile",
+    icon: 'bi bi-person'
+  },
 ];

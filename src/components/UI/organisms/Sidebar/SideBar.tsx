@@ -1,11 +1,16 @@
+import { Col } from "react-bootstrap";
 import { NavigationItems } from "../../../../constants/NavigationItems";
 import SideBarBrand from "../../molecules/NavBars/SideBar/SideBarBrand";
-import SideBarFooter from "../../molecules/NavBars/SideBar/SideBarFooter";
 import SideBarNavItem from "../../molecules/NavBars/SideBar/SideBarNavItem";
 
 const SideBar = () => {
   return (
-    <div className="bg-dark col-auto col-md-3 min-vh-100 d-flex justify-content-between flex-column">
+    <Col
+      className="bg-dark min-vh-100 d-flex justify-content-between flex-column p-3"
+      xs="auto"
+      md={3}
+      lg={2}
+    >
       <div>
         <SideBarBrand />
         <ul className="nav nav-pills flex-column align-items-start mt-3 mt-sm-0">
@@ -14,8 +19,8 @@ const SideBar = () => {
           ))}
         </ul>
       </div>
-      <SideBarFooter />
-    </div>
+      {/* <SideBarFooter /> */}
+    </Col>
   );
 };
 
