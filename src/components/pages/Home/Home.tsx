@@ -17,15 +17,17 @@ const Home = () => {
 
   return (
     <DefaultTemplate>
-      <>
+      <div className="w-100 h-100 p-3">
         <TableCustom
           columns={UserColumns}
           rows={UsersData}
           actions
+          itemsCount={3}
+          itemsPerPage={1}
           onEditActionPressed={handleEdit}
           onDeleteActionPressed={handleRemove}
         />
-      </>
+      </div>
     </DefaultTemplate>
   );
 };

@@ -16,7 +16,7 @@ const EditUser = () => {
       const id: number = +params?.id;
       const userFetched = UsersData.filter((item) => item.id === id)[0];
       setUser(userFetched);
-      setLoaded(true)
+      setLoaded(true);
     }
   };
 
@@ -24,9 +24,7 @@ const EditUser = () => {
 
   return (
     <DefaultTemplate loaded={loaded}>
-      {!user ? <ItemNotFound title="User not found" /> :<div>
-
-      </div>}
+      {!user ? <ItemNotFound title="User not found" /> : <div></div>}
     </DefaultTemplate>
   );
 };
