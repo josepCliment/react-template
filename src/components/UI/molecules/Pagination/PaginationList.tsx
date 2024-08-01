@@ -28,6 +28,7 @@ const PaginationList = ({
   };
 
   let isPageNumberOutOfRange: boolean;
+  //Fill the pagination items
   const pageNumbers = [...new Array(pagesCount)].map((_, index) => {
     const pageNumber = index + 1;
     const isPageNumberFirst = pageNumber === 1;
@@ -51,7 +52,7 @@ const PaginationList = ({
         </Pagination.Item>
       );
     }
-
+    //Check if is out of range
     if (!isPageNumberOutOfRange) {
       isPageNumberOutOfRange = true;
       return <Pagination.Ellipsis key={pageNumber} className="muted" />;
